@@ -33,68 +33,63 @@ $a = $Obj->getGrupo();
 			}
 		}
 	}
-	/*if($tipodeexamen =='b')
+	if($tipodeexamen =='b')
 	{
-	  if($fila1[1]!= $a)
+	  if($fila1[1]=='')
 	  {  //sigunifica que no existe el usuario porlo tando crea uno nuevo
 		$Obj->adicionarNombre();
-		header("location: /promoupsa1/vista/Examen1form1.php");
+		header("location: /promoupsa1/vista/Examen2form2.php");
 	  }
 		else 
 		{
-			if($fila[2]==0 )
+			if($fila1[2]==0 )
 			{	//significa que si existe el usuario pero no ha dado el examen que le toque 
-				header("location: /promoupsa1/vista/Examen1form1.php");
+				header("location: /promoupsa1/vista/Examen2form2.php");
 			}
 			else
 			{
-				header("location: /promoupsa1/index1.php");
+				header("location: /promoupsa1/vista/index2.php");
 			}
 		}
 	}
 	if($tipodeexamen =='c')
 	{
-	  if($fila1[1]!= $a)
+	  if($fila1[1]=='')
 	  {  //sigunifica que no existe el usuario porlo tando crea uno nuevo
 		$Obj->adicionarNombre();
-		header("location: /promoupsa1/vista/Examen1form1.php");
+		header("location: /promoupsa1/vista/Examen3form3.php");
 	  }
 		else 
 		{
-			if($fila[2]==0 )
+			if($fila1[2]==0 )
 			{	//significa que si existe el usuario pero no ha dado el examen que le toque 
-				header("location: /promoupsa1/vista/Examen1form1.php");
+				header("location: /promoupsa1/vista/Examen3form3.php");
 			}
 			else
 			{
-				header("location: /promoupsa1/index1.php");
+				header("location: /promoupsa1/vista/index3.php");
 			}
 		}
 	}
 	if($tipodeexamen =='d')
 	{
-	  if($fila1[1]!= $a)
+	  if($fila1[1]=='')
 	  {  //sigunifica que no existe el usuario porlo tando crea uno nuevo
 		$Obj->adicionarNombre();
-		header("location: /promoupsa1/vista/Examen1form1.php");
+		header("location: /promoupsa1/vista/Examen4form4.php");
 	  }
 		else 
 		{
-			if($fila[2]==0 )
+			if($fila1[2]==0 )
 			{	//significa que si existe el usuario pero no ha dado el examen que le toque 
-				header("location: /promoupsa1/vista/Examen1form1.php");
+				header("location: /promoupsa1/vista/Examen4form4.php");
 			}
 			else
 			{
-				header("location: /promoupsa1/index1.php");
+				header("location: /promoupsa1/vista/index4.php");
 			}
 		}
 	}
-	
-
-	*/
-
-
 
 
 

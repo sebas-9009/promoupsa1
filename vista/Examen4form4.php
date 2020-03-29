@@ -58,7 +58,7 @@ session_start();
             <form action="../controlador/Examen1Controlador.php" method="POST">
             	<div class="form-header">
             		<a href="#">#Promo UPSA cuestionario online</a>
-            		<h3>Carrera de Ingenieria Informática y/o de Sistemas</h3>
+            		<h3>Carrera de Ingenieria Industrial y de Sistema </h3>
             	</div>
             	<div id="wizard">
             		<!-- SECTION 1 -->
