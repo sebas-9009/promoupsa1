@@ -18,9 +18,9 @@ $(function(){
             return true; 
         },
         labels: {
-            finish: "Fin",
-            next: "Siguiente",
-            previous: "Atras"
+            finish: "Submit",
+            next: "Continue",
+            previous: "Back"
         }
     });
     // Custom Button Jquery Steps
@@ -30,6 +30,7 @@ $(function(){
     $('.backward').click(function(){
         $("#wizard").steps('previous');
     })
-  
-                
+    // Date Picker
+    var dp1 = $('#dp1').datepicker().data('datepicker');
+    dp1.selectDate(new Date());
 })

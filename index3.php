@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	$examen = "c";
+	$_SESSION['examen'] = $examen;
+	?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -28,6 +33,13 @@
   margin: 4px 2px;
   cursor: pointer;
 }
+.padre {
+  margin: 1rem;
+  padding: 1rem;
+  border: 2px ;
+  /* IMPORTANTE */
+  text-align: center;
+}
 
 .button1 {border-radius: 2px;}
 .button2 {border-radius: 4px;}
@@ -51,12 +63,12 @@
             <form action="controlador/MainnControlador.php" method="POST">
             	<div class="form-header">
             		<a href="#">#Promo UPSA cuestionario online</a>
-            		<h3>Cuestionario</h3>
+            		<h3>Cuestionario de Ingenieria Civil</h3>
             	</div>
             	<div id="wizard">
 	                <h4></h4>
 	                <section>
-	                	<h3 align="center">Create un Grupo o si ya tienes uno entra con ese</h3>
+	                	<h3 align="center">Create un Grupo o si ya tienes uno entra con ese nombre de grupo!!</h3>
 	                	<div class="form-row">
 	                    		<label for="">
 	                    		Nombre del grupo:
@@ -65,7 +77,7 @@
 	                    			<input type="text" class="form-control" name="grupo" id ="grupo"><br>
 	                    		</div>
 	                    	</div>                  
-	                     <button class="button button4 ">Registrar Grupo</button>
+	                    <div class="padre"> <button class="button button4 ">Registrar Grupo</button></div>
 	                </section>
             	</div>
             </form>

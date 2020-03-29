@@ -7,131 +7,116 @@
  */
 require_once("ConectarDB.php");//incluye una sola vez el contenido del archivo
 class Examen1Modelo{
-    private $idExamen1;
-    private $nombre;
-    private $respuesta1;
-    private $respuesta2;
-    private $respuesta3;
-    private $respuesta4;
-    private $respuesta5;
-    private $nota;
+    private $idGrupo;
+    private $grupo;
+    private $examen1;
+    private $examen2;
+    private $examen3;
+    private $examen4;
 
-    public function __construct($nom="",$r1="",$r2="",$r3="",$r4="",$r5="",$nt="")
+
+    public function __construct($gru="",$e1="",$e2="",$e3="",$e4="")
     {
-        $this->idExamen1 = 0;
-        $this->nombre    = $nom;
-        $this->respuesta1       = $r1;
-        $this->respuesta2  = $r2;
-        $this->respuesta3     = $r3;
-        $this->respuesta4      = $r4;
-        $this->respuesta5      = $r5;
-        $this->nota      = $nt;
+        $this->idGrupo = 0;
+        $this->grupo    = $gru;
+        $this->examen1       = $e1;
+        $this->examen2  = $e2;
+        $this->examen3     = $e3;
+        $this->examen4      = $e4;
     }
     public function __destruct()
     {
 
     }
-    public function setIdExamen1($idEx1)
+    public function setIdGrupo($idGru)
     {
-        $this->idExamen1 = $idEx1;
+        $this->idGrupo = $idGru;
     }
-    public function setNombre($nom)
+    public function setGrupo($gru)
     {
-        $this->nombre = $nom;
+        $this->grupo = $gru;
     }
-    public function setRespuesta1($r1)
+    public function setExamen1($e1)
     {
-        $this->respuesta1 = $r1;
+        $this->examen1 = $e1;
     }
-    public function setRespuesta2($r2)
+    public function setExamen2($e2)
     {
-        $this->respuesta2 = $r2;
+        $this->examen2 = $e2;
     }
-    public function setRespuesta3($r3)
+    public function setExamen3($e3)
     {
-        $this->respuesta3 = $r3;
+        $this->examen3 = $e3;
     }
-    public function setRespuesta4($r4)
+    public function setExamen4($e4)
     {
-        $this->respuesta4 = $r4;
-    }
-    public function setRespuesta5($r5)
-    {
-        $this->respuesta5 = $r5;
-    }
-    public function setNota($nt)
-    {
-        $this->nota = $nt;
+        $this->examen4 = $e4;
     }
 
-    public function getIdExamen1()
+
+    public function getIdGrupo()
     {
-      return $this->idExamen1;
+      return $this->idGrupo;
     }
-    public function getNombre()
+    public function getGrupo()
     {
-      return $this->nombre;
+      return $this->grupo;
     }
-    public function getRespuesta1()
+    public function getExamen1()
     {
-      return $this->respuesta1;
+      return $this->examen1;
     }
-    public function getRespuesta2()
+    public function getExamen2()
     {
-      return $this->respuesta2;
+      return $this->examen2;
     }
-    public function getRespuesta3()
+    public function getExamen3()
     {
-      return $this->respuesta3;
+      return $this->examen3;
     }
-    public function getRespuesta4()
+    public function getExamen4()
     {
-      return $this->respuesta4;
-    }
-    public function getRespuesta5()
-    {
-      return $this->respuesta5;
-    }
-    public function getNota()
-    {
-      return $this->nota;
+      return $this->examen4;
     }
 
+    public function adicionarNombre()
+    {
+        $conexion = Conectar::conectarBD();
+        if($conexion !=false)
+        {
+            $sql = "INSERT INTO examen(grupo) VALUES(?);";
+            $stmt = $conexion->prepare($sql);
+            $stmt->bind_param('s', $this->grupo);
+            if($stmt->execute())
+            {
+                return(true);
+
+            }
+            else
+            {
+                return(false);
+            }
+            $conexion->close();
+        }
+    }
 
 
     public function obtenerTodos()
     {
-        $sql="SELECT * FROM examen1;";
+        $sql="SELECT * FROM examen;";
         $conexion = Conectar::conectarBD();
         $rows = $conexion->query($sql);
         $conexion->close();
         return($rows);
     }
-    public function obtenerNota($nombre)
+    public function obtenerNota($grupo)
     {
-        $sql = "SELECT * FROM examen1 WHERE nombre='$nombre';";
+        $sql = "SELECT * FROM examen WHERE grupo='$grupo';";
         $conexion = Conectar::conectarBD();
         $rows = $conexion->query($sql);
         $conexion->close();
         return($rows);
     }
-     public function validacion($nombre,$clave)
-    {
-        $sql = "SELECT * FROM examen1 WHERE nombre='$nombre'and respuesta1 = '$clave';";
-        $conexion = Conectar::conectarBD();
-        $rows = $conexion->query($sql);
-        $conexion->close();
-        return($rows);
-    }
-       public function validacionnombre($nombre)
-    {
-        $sql = "SELECT * FROM examen1 WHERE nombre='$nombre';";
-        $conexion = Conectar::conectarBD();
-        $rows = $conexion->query($sql);
-        $conexion->close();
-        return($rows);
-    }
-
 
     public function estadistica()
     {
@@ -178,14 +163,15 @@ class Examen1Modelo{
             $conexion->close();
         }
     }
-    public function modificar($id=0)
+    public function modificarExamen1($examen1 , $grupo)
     {
         $conexion = Conectar::conectarBD();//nos conectamos a la base de datos
         if($conexion != false)
         {
-            $sql = "UPDATE cliente SET nombre = ?,nit=?,telefono=?,email=?,edad=? WHERE idcliente=?;";
+            $sql = "UPDATE examen SET examen1 = $examen1  WHERE grupo= '$grupo';";
+            echo $sql;
             $stmt=$conexion->prepare($sql);
-            $stmt->bind_param('ssssii',$this->nombre, $this->nit, $this->telefono, $this->email, $this->edad,$id);
+            $stmt->bind_param('is',$examen1 ,$grupo);
             if($stmt->execute())
             {
                 $conexion->close();

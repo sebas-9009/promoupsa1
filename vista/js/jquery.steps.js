@@ -444,33 +444,33 @@ function getValidEnumValue(enumType, keyOrValue)
 }
 
 /**
- * Routes to the siguiente step.
+ * Routes to the next step.
  *
  * @static
  * @private
- * @method goTosiguienteStep
+ * @method goToNextStep
  * @param wizard {Object} The jQuery wizard object
  * @param options {Object} Settings of the current wizard
  * @param state {Object} The state container of the current wizard
  * @return {Boolean} Indicates whether the action executed
  **/
-function goTosiguienteStep(wizard, options, state)
+function goToNextStep(wizard, options, state)
 {
     return paginationClick(wizard, options, state, increaseCurrentIndexBy(state, 1));
 }
 
 /**
- * Routes to the atras step.
+ * Routes to the previous step.
  *
  * @static
  * @private
- * @method goToatrasStep
+ * @method goToPreviousStep
  * @param wizard {Object} The jQuery wizard object
  * @param options {Object} Settings of the current wizard
  * @param state {Object} The state container of the current wizard
  * @return {Boolean} Indicates whether the action executed
  **/
-function goToatrasStep(wizard, options, state)
+function goToPreviousStep(wizard, options, state)
 {
     return paginationClick(wizard, options, state, decreaseCurrentIndexBy(state, 1));
 }
@@ -678,12 +678,12 @@ function keyUpHandler(event)
     if (event.keyCode === keyCodes.left)
     {
         event.preventDefault();
-        goToatrasStep(wizard, options, state);
+        goToPreviousStep(wizard, options, state);
     }
     else if (event.keyCode === keyCodes.right)
     {
         event.preventDefault();
-        goTosiguienteStep(wizard, options, state);
+        goToNextStep(wizard, options, state);
     }
 }
 
@@ -730,7 +730,7 @@ function loadAsyncContent(wizard, options, state)
 }
 
 /**
- * Fires the action siguiente or atras click event.
+ * Fires the action next or previous click event.
  *
  * @static
  * @private
@@ -797,12 +797,12 @@ function paginationClickHandler(event)
             finishStep(wizard, state);
             break;
 
-        case "siguiente":
-            goTosiguienteStep(wizard, options, state);
+        case "next":
+            goToNextStep(wizard, options, state);
             break;
 
-        case "atras":
-            goToatrasStep(wizard, options, state);
+        case "previous":
+            goToPreviousStep(wizard, options, state);
             break;
     }
 }
@@ -822,23 +822,23 @@ function refreshPagination(wizard, options, state)
     if (options.enablePagination)
     {
         var finish = wizard.find(".actions a[href$='#finish']").parent(),
-            siguiente = wizard.find(".actions a[href$='#siguiente']").parent();
+            next = wizard.find(".actions a[href$='#next']").parent();
 
         if (!options.forceMoveForward)
         {
-            var atras = wizard.find(".actions a[href$='#atras']").parent();
-            atras._enableAria(state.currentIndex > 0);
+            var previous = wizard.find(".actions a[href$='#previous']").parent();
+            previous._enableAria(state.currentIndex > 0);
         }
 
         if (options.enableFinishButton && options.showFinishButtonAlways)
         {
             finish._enableAria(state.stepCount > 0);
-            siguiente._enableAria(state.stepCount > 1 && state.stepCount > (state.currentIndex + 1));
+            next._enableAria(state.stepCount > 1 && state.stepCount > (state.currentIndex + 1));
         }
         else
         {
             finish._showAria(options.enableFinishButton && state.stepCount === (state.currentIndex + 1));
-            siguiente._showAria(state.stepCount === 0 || state.stepCount > (state.currentIndex + 1)).
+            next._showAria(state.stepCount === 0 || state.stepCount > (state.currentIndex + 1)).
                 _enableAria(state.stepCount > (state.currentIndex + 1) || !options.enableFinishButton);
         }
     }
@@ -865,13 +865,13 @@ function refreshStepNavigation(wizard, options, state, oldIndex)
     {
         var oldStepAnchor = getStepAnchor(wizard, oldIndex);
         oldStepAnchor.parent().addClass("done").removeClass("error")._selectAria(false);
-        stepTitles.eq(oldIndex).removeClass("current").siguiente(".body").removeClass("current");
+        stepTitles.eq(oldIndex).removeClass("current").next(".body").removeClass("current");
         currentInfo = oldStepAnchor.find(".current-info");
         currentOrNewStepAnchor.focus();
     }
 
     currentOrNewStepAnchor.prepend(currentInfo).parent()._selectAria().removeClass("done")._enableAria();
-    stepTitles.eq(state.currentIndex).addClass("current").siguiente(".body").addClass("current");
+    stepTitles.eq(state.currentIndex).addClass("current").next(".body").addClass("current");
 }
 
 /**
@@ -1060,10 +1060,10 @@ function renderPagination(wizard, options, state)
 
         if (!options.forceMoveForward)
         {
-            buttons += buttonTemplate.format("atras", options.labels.atras);
+            buttons += buttonTemplate.format("previous", options.labels.previous);
         }
 
-        buttons += buttonTemplate.format("siguiente", options.labels.siguiente);
+        buttons += buttonTemplate.format("next", options.labels.next);
 
         if (options.enableFinishButton)
         {
@@ -1417,25 +1417,25 @@ $.fn.steps.insert = function (index, step)
 };
 
 /**
- * Routes to the siguiente step.
+ * Routes to the next step.
  *
- * @method siguiente
+ * @method next
  * @return {Boolean} Indicates whether the action executed
  **/
-$.fn.steps.siguiente = function ()
+$.fn.steps.next = function ()
 {
-    return goTosiguienteStep(this, getOptions(this), getState(this));
+    return goToNextStep(this, getOptions(this), getState(this));
 };
 
 /**
- * Routes to the atras step.
+ * Routes to the previous step.
  *
- * @method atras
+ * @method previous
  * @return {Boolean} Indicates whether the action executed
  **/
-$.fn.steps.atras = function ()
+$.fn.steps.previous = function ()
 {
-    return goToatrasStep(this, getOptions(this), getState(this));
+    return goToPreviousStep(this, getOptions(this), getState(this));
 };
 
 /**
@@ -1817,8 +1817,8 @@ var defaults = $.fn.steps.defaults = {
     preloadContent: false,
 
     /**
-     * Shows the finish button always (on each step; right beside the siguiente button) if `true`. 
-     * Otherwise the siguiente button will be replaced by the finish button if the last step becomes active.
+     * Shows the finish button always (on each step; right beside the next button) if `true`. 
+     * Otherwise the next button will be replaced by the finish button if the last step becomes active.
      *
      * @property showFinishButtonAlways
      * @type Boolean
@@ -1828,7 +1828,7 @@ var defaults = $.fn.steps.defaults = {
     showFinishButtonAlways: false,
 
     /**
-     * Prevents jumping to a atras step.
+     * Prevents jumping to a previous step.
      *
      * @property forceMoveForward
      * @type Boolean
@@ -1839,7 +1839,7 @@ var defaults = $.fn.steps.defaults = {
 
     /**
      * Saves the current state (step position) to a cookie.
-     * By coming siguiente time the last active step becomes activated.
+     * By coming next time the last active step becomes activated.
      *
      * @property saveState
      * @type Boolean
@@ -2009,24 +2009,24 @@ var defaults = $.fn.steps.defaults = {
         finish: "Finish",
 
         /**
-         * Label for the siguiente button.
+         * Label for the next button.
          *
-         * @property siguiente
+         * @property next
          * @type String
-         * @default "siguiente"
+         * @default "Next"
          * @for defaults
          **/
-        siguiente: "siguiente",
+        next: "Next",
 
         /**
-         * Label for the atras button.
+         * Label for the previous button.
          *
-         * @property atras
+         * @property previous
          * @type String
-         * @default "atras"
+         * @default "Previous"
          * @for defaults
          **/
-        atras: "atras",
+        previous: "Previous",
 
         /**
          * Label for the loading animation.

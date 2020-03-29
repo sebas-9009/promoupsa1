@@ -1,30 +1,82 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 session_start();
 $grupo = $_POST['grupo'];
-$clave = $_POST['clave'];
 $_SESSION['grupo'] = $grupo;
-$_SESSION['clave'] = $clave;
+
+$tipodeexamen = $_SESSION['examen'];
+
+require_once __DIR__.'/../modelo/Examen1Modelo.php';
+
+$Obj = new Examen1Modelo();
+$Obj->setGrupo($grupo);
+$a = $Obj->getGrupo();
+$row1 = $Obj->obtenerTodos();
+$fila1 = $row1->fetch_row();	
+$row = $Obj->obtenerNota($grupo);
+$fila = $row->fetch_row();
+
+	if($tipodeexamen =='a')
+	{
+	  if($fila1[1]!= $a)
+	  {  //sigunifica que no existe el usuario porlo tando crea uno nuevo
+		$Obj->adicionarNombre();
+		header("location: /../promoupsa1/vista/Examen1form1.php");
+	  }
+		else 
+		{
+			if($fila[2]==0 )
+			{	//significa que si existe el usuario pero no ha dado el examen que le toque 
+				header("location: /../promoupsa1/vista/Examen1form1.php");
+			}
+			else
+			{
+				header("location: /../promoupsa1/index1.php");
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+session_start();
+$grupo = $_POST['grupo'];
+
+$_SESSION['grupo'] = $grupo;
 require_once __DIR__.'/../modelo/Examen1Modelo.php';
 
 $ObjEx1 = new Examen1Modelo();
-$rows = $ObjEx1->validacion($nombre,$clave);
+
 $rows2 = $ObjEx1->validacionnombre($nombre);
 
-
-$fila = mysql_num_rows($rows);
 $fila2 = mysql_num_rows($rows2);
 
-
-if($_POST['promo']=='a' && $fila>0)//validacion de contraseña y usuario
-{
-    require_once __DIR__. '/../vista/Examen1form1.php';
-} else {
     if ($fila2>0) {   // validacion solo del nombre si existe que vuelva a la pagina de inicio por que ya existe ese usuario 
        header("locatio:/../vista/mainn.html");
       }else{    // caso contrario que ingrese un nuevo grupo en la base de datos 
@@ -34,7 +86,6 @@ if($_POST['promo']=='a' && $fila>0)//validacion de contraseña y usuario
           require_once __DIR__. '/../vista/Examen1form1.php';
       }
   
-    }
 
   if($_POST['promo']=='b')
   {

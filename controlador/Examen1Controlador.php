@@ -1,18 +1,12 @@
 <?php
 session_start();
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-//$idExamen1 = $_POST['idExamen1'];
-//$nombre    = $_POST['nombre'];
+require_once __DIR__.'/../modelo/Examen1Modelo.php';
 $respuesta1       = $_POST['resp1'];
 $respuesta2  = $_POST['resp2'];
 $respuesta3     = $_POST['resp3'];
 $respuesta4      = $_POST['resp4'];
 $respuesta5      = $_POST['resp5'];
-require_once __DIR__.'/../modelo/Examen1Modelo.php';
+
 $ObjEx1 = new Examen1Modelo();
 
 if(isset($_POST['btn_enviar']))
@@ -58,9 +52,9 @@ if(isset($_POST['btn_enviar']))
           $ObjEx1->setRespuesta5($respuesta5);
         }
 
-        $ObjEx1->setNombre($_SESSION['grupo']);
-        $ObjEx1->setNota($nota);
-        $ObjEx1->adicionar();
+   //     $ObjEx1->setNombre($_SESSION['grupo']);
+        //$ObjEx1->setNota($nota);
+   //     $ObjEx1->adicionar();
 echo "<!DOCTYPE html>\n";
 echo "<html>\n";
 echo "  <head>\n";
