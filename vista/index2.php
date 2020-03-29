@@ -1,8 +1,8 @@
 <?php
 	session_start();
-	$examen = "c";
+	$examen = "b";
 	$_SESSION['examen'] = $examen;
-	?>
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -60,10 +60,10 @@
 			<div class="image-holder">
 				<img src="images/logo.png" alt="">
 			</div>
-            <form action="controlador/MainnControlador.php" method="POST">
+            <form action="/promoupsa1/controlador/MainnControladordelosexam.php" method="POST">
             	<div class="form-header">
             		<a href="#">#Promo UPSA cuestionario online</a>
-            		<h3>Cuestionario de Ingenieria Civil</h3>
+            		<h3>Cuestionario de Ingenieria Informatica administrativa y/o de Sistema </h3>
             	</div>
             	<div id="wizard">
 	                <h4></h4>
@@ -77,7 +77,7 @@
 	                    			<input type="text" class="form-control" name="grupo" id ="grupo"><br>
 	                    		</div>
 	                    	</div>                  
-	                    <div class="padre"> <button class="button button4 ">Registrar Grupo</button></div>
+	                    <div class="padre"> <button class="button button4 ">Ingresar</button></div>
 	                </section>
             	</div>
             </form>

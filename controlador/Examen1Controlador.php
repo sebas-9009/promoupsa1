@@ -6,127 +6,172 @@ $respuesta2  = $_POST['resp2'];
 $respuesta3     = $_POST['resp3'];
 $respuesta4      = $_POST['resp4'];
 $respuesta5      = $_POST['resp5'];
+$respuesta6     = $_POST['resp6'];
+$respuesta7      = $_POST['resp7'];
+$respuesta8      = $_POST['resp8'];
+$respuesta9      = $_POST['resp9'];
+$respuesta10      = $_POST['gender'];
 
-$ObjEx1 = new Examen1Modelo();
+$Obj = new Examen1Modelo();
 
 if(isset($_POST['btn_enviar']))
 {
-   
+				 $nota = 0;
+					echo "<br>Se adiciono exitosamente!";
+					if($respuesta1 == 'a')
+					{
+					  $nota = $nota + 10;
+					//  $ObjEx1->setRespuesta1($respuesta1);
+					}else {
+					  //$ObjEx1->setRespuesta1($respuesta1);
+					}
+					if($respuesta2 == 'a')
+					{
+					  $nota = $nota + 10;
+					//  $ObjEx1->setRespuesta2($respuesta2);
+					}
+					else {
+					//  $ObjEx1->setRespuesta2($respuesta2);
+					}
+					if($respuesta3 == 'a')
+					{
+					  $nota = $nota + 10;
+				  //    $ObjEx1->setRespuesta3($respuesta3);
+					}
+					else {
+				  //    $ObjEx1->setRespuesta3($respuesta3);
+					}
+					if($respuesta4 == 'a')
+					{
+					  $nota = $nota + 10;
+				  //    $ObjEx1->setRespuesta4($respuesta4);
+					}else {
+				  //    $ObjEx1->setRespuesta4($respuesta4);
+					}
+					if($respuesta5 == '2')
+					{
+					  $nota = $nota + 10;
+				  //    $ObjEx1->setRespuesta5($respuesta5);
+					}else {
+				//      $ObjEx1->setRespuesta5($respuesta5);
+					}
+					if($respuesta6 == '2')
+					{
+					  $nota = $nota + 10;
+				  //    $ObjEx1->setRespuesta5($respuesta5);
+					}else {
+				//      $ObjEx1->setRespuesta5($respuesta5);
+					}
+					if($respuesta7 == 'a')
+					{
+					  $nota = $nota + 10;
+				  //    $ObjEx1->setRespuesta5($respuesta5);
+					}else {
+				//      $ObjEx1->setRespuesta5($respuesta5);
+					}
+					if($respuesta8 == '2')
+					{
+					  $nota = $nota + 10;
+				  //    $ObjEx1->setRespuesta5($respuesta5);
+					}else {
+				//      $ObjEx1->setRespuesta5($respuesta5);
+					}
+					if($respuesta9 == '2')
+					{
+					  $nota = $nota + 10;
+				  //    $ObjEx1->setRespuesta5($respuesta5);
+					}else {
+				//      $ObjEx1->setRespuesta5($respuesta5);
+					}
+					if($respuesta10 == '2')
+					{
+					  $nota = $nota + 10;
+				  //    $ObjEx1->setRespuesta5($respuesta5);
+					}else {
+				//      $ObjEx1->setRespuesta5($respuesta5);
+					}
+       
 
-        $nota = 0;
-        if($respuesta1 == 'a')
-        {
-          $nota = $nota + 20;
-          $ObjEx1->setRespuesta1($respuesta1);
-        }else {
-          $ObjEx1->setRespuesta1($respuesta1);
-        }
-        if($respuesta2 == 'a')
-        {
-          $nota = $nota + 20;
-          $ObjEx1->setRespuesta2($respuesta2);
-        }
-        else {
-          $ObjEx1->setRespuesta2($respuesta2);
-        }
-        if($respuesta3 == 'a')
-        {
-          $nota = $nota + 20;
-          $ObjEx1->setRespuesta3($respuesta3);
-        }
-        else {
-          $ObjEx1->setRespuesta3($respuesta3);
-        }
-        if($respuesta4 == 'a')
-        {
-          $nota = $nota + 20;
-          $ObjEx1->setRespuesta4($respuesta4);
-        }else {
-          $ObjEx1->setRespuesta4($respuesta4);
-        }
-        if($respuesta5 == '2')
-        {
-          $nota = $nota + 20;
-          $ObjEx1->setRespuesta5($respuesta5);
-        }else {
-          $ObjEx1->setRespuesta5($respuesta5);
-        }
-
-   //     $ObjEx1->setNombre($_SESSION['grupo']);
-        //$ObjEx1->setNota($nota);
-   //     $ObjEx1->adicionar();
-echo "<!DOCTYPE html>\n";
-echo "<html>\n";
-echo "  <head>\n";
-echo "      <meta charset=\"utf-8\">\n";
-echo "      <title>PROMO UPSA</title>\n";
-echo "      <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n";
-echo "      <meta name=\"author\" content=\"colorlib.com\">\n";
-echo "      <style>\n";
-echo "      .button {\n";
-echo "      background-color: #FFBF00; \n";
-echo "      border: none;\n";
-echo "      color: white;\n";
-echo "      font-weight: bold;\n";
-echo "      padding: 20px;\n";
-echo "      text-align: center;\n";
-echo "      text-decoration: none;\n";
-echo "      display: inline-block;\n";
-echo "      font-size: 15px;\n";
-echo "      margin: 4px 2px;\n";
-echo "      cursor: pointer;\n";
-echo "      }\n";
-echo "      .button1 {border-radius: 2px;}\n";
-echo "      .button2 {border-radius: 4px;}\n";
-echo "      .button3 {border-radius: 8px;}\n";
-echo "      .button4 {border-radius: 40px;}\n";
-echo "      .button5 {border-radius: 50%;}\n";
-echo "      .p{\n";
-echo "       margin: 1rem;\n";
-echo "       padding: 1rem;\n";
-echo "       border: 2px ;\n";
-echo "       /* IMPORTANTE */\n";
-echo "       text-align: center;";
-echo "      font-weight:bold;\n";
-echo "      font-size: 30px;\n";
-echo "      }\n";
-echo "      </style>";
-echo "      \n";
-echo "      <!-- MATERIAL DESIGN ICONIC FONT -->\n";
-echo "      <link rel=\"stylesheet\" href=\"fonts/material-design-iconic-font/css/material-design-iconic-font.css\">\n";
-echo "\n";
-echo "      <!-- STYLE CSS -->\n";
-echo "      <link rel=\"stylesheet\" href=\"css/style.css\">\n";
-echo "  </head>\n";
-echo "<body>\n";
-echo "      <div class=\"wrapper\">\n";
-echo "          <div class=\"image-holder\">\n";
-echo "              <img src=\"images/logo.png\" alt=\"\">\n";
-echo "          </div>\n";
-echo "            <form action=\"Examen1Controlador1.php\" method=\"POST\">\n";
-echo "              <div class=\"form-header\">\n";
-echo "                  <a href=\"#\">#Promo UPSA cuestionario online</a>\n";
-echo "                  <h3>Carrera de Ingenieria Informática y/o de Sistemas</h3>\n";
-echo "                  <h3>Nombre del Grupo : ".$_SESSION['grupo']."</h3>\n";
-echo "              </div>\n";
-echo "              <div id=\"wizard\">\n";
-echo "                  <div class=\"p\">\n";
-echo "                  <h1>Nota:</h1>\n";
-echo "                  <h1>$nota</h1>\n";
-echo "                  <br>\n";
-echo "                  <button class=\"button button4\" name=\"btn_mostrar\">Ver Notas</button>";
-echo "                  </div>\n";
-echo "              </div>\n";
-echo "            </form>\n";
-echo "      </div>\n";
-echo "\n";
-echo "      \n";
-echo "</body>";
-
-echo "</html>";
+					$Obj->setExamen1($nota);
+					$aux = $Obj->getExamen1();
+					$Obj->modificarExamen1($aux,$_SESSION['grupo']);
 
 
-}
+
+
+
+			echo "<!DOCTYPE html>\n";
+			echo "<html>\n";
+			echo "  <head>\n";
+			echo "      <meta charset=\"utf-8\">\n";
+			echo "      <title>PROMO UPSA</title>\n";
+			echo "      <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n";
+			echo "      <meta name=\"author\" content=\"colorlib.com\">\n";
+			echo "      <style>\n";
+			echo "      .button {\n";
+			echo "      background-color: #FFBF00; \n";
+			echo "      border: none;\n";
+			echo "      color: white;\n";
+			echo "      font-weight: bold;\n";
+			echo "      padding: 20px;\n";
+			echo "      text-align: center;\n";
+			echo "      text-decoration: none;\n";
+			echo "      display: inline-block;\n";
+			echo "      font-size: 15px;\n";
+			echo "      margin: 4px 2px;\n";
+			echo "      cursor: pointer;\n";
+			echo "      }\n";
+			echo "      .button1 {border-radius: 2px;}\n";
+			echo "      .button2 {border-radius: 4px;}\n";
+			echo "      .button3 {border-radius: 8px;}\n";
+			echo "      .button4 {border-radius: 40px;}\n";
+			echo "      .button5 {border-radius: 50%;}\n";
+			echo "      .p{\n";
+			echo "       margin: 1rem;\n";
+			echo "       padding: 1rem;\n";
+			echo "       border: 2px ;\n";
+			echo "       /* IMPORTANTE */\n";
+			echo "       text-align: center;";
+			echo "      font-weight:bold;\n";
+			echo "      font-size: 30px;\n";
+			echo "      }\n";
+			echo "      </style>";
+			echo "      \n";
+			echo "      <!-- MATERIAL DESIGN ICONIC FONT -->\n";
+			echo "      <link rel=\"stylesheet\" href=\"fonts/material-design-iconic-font/css/material-design-iconic-font.css\">\n";
+			echo "\n";
+			echo "      <!-- STYLE CSS -->\n";
+			echo "      <link rel=\"stylesheet\" href=\"css/style.css\">\n";
+			echo "  </head>\n";
+			echo "<body>\n";
+			echo "      <div class=\"wrapper\">\n";
+			echo "          <div class=\"image-holder\">\n";
+			echo "              <img src=\"images/logo.png\" alt=\"\">\n";
+			echo "          </div>\n";
+			echo "            <form action=\"Examen1Controlador1.php\" method=\"POST\">\n";
+			echo "              <div class=\"form-header\">\n";
+			echo "                  <a href=\"#\">#Promo UPSA cuestionario online</a>\n";
+			echo "                  <h3>Carrera de Ingenieria Informática y/o de Sistemas</h3>\n";
+			echo "                  <h3>Nombre del Grupo : ".$_SESSION['grupo']."</h3>\n";
+			echo "              </div>\n";
+			echo "              <div id=\"wizard\">\n";
+			echo "                  <div class=\"p\">\n";
+			echo "                  <h1>Nota:</h1>\n";
+			echo "                  <h1>$nota</h1>\n";
+			echo "                  <br>\n";
+			echo "                  <button class=\"button button4\" name=\"btn_mostrar\">Ver Notas</button>";
+			echo "                  </div>\n";
+			echo "              </div>\n";
+			echo "            </form>\n";
+			echo "      </div>\n";
+			echo "\n";
+			echo "      \n";
+			echo "</body>";
+
+			echo "</html>";
+
+
+  }
 
 
 /*function mostrar1($menor="",$entre="",$mayor="")

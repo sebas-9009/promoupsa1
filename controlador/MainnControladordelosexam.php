@@ -1,20 +1,4 @@
 <?php
-
-$user=$_POST['user'];
-$contra = $_POST['clave'];
-if($user =='liderstoro' && $contra == '1234567' || $user =='sebasMeneses' && $contra == 'lol1234' ){
-	 header("location: /../promoupsa1/vista/mainn2.html");
-   // require_once __DIR__ . "/../vista/mainn2.html" ;
-	}else{
-	//require_once __DIR__ . "/../vista/mainn.html" ;
-    header("location: /../promoupsa1");
-
-	}
-
-
-
-
-   /*
 session_start();
 $grupo = $_POST['grupo'];
 $_SESSION['grupo'] = $grupo;
@@ -26,32 +10,89 @@ require_once __DIR__.'/../modelo/Examen1Modelo.php';
 $Obj = new Examen1Modelo();
 $Obj->setGrupo($grupo);
 $a = $Obj->getGrupo();
-$row1 = $Obj->obtenerTodos();
-$fila1 = $row1->fetch_row();	
-$row = $Obj->obtenerNota($grupo);
-$fila = $row->fetch_row();
+
+	$row = $Obj->obtenerNota($grupo);
+	$fila1 = $row->fetch_row();	
+
 	if($tipodeexamen =='a')
+	{
+	  if($fila1[1]=='')
+	  {  //sigunifica que no existe el usuario porlo tando crea uno nuevo
+		$Obj->adicionarNombre();
+		header("location: /promoupsa1/vista/Examen1form1.php");
+	  }
+		else 
+		{
+			if($fila1[2]==0 )
+			{	//significa que si existe el usuario pero no ha dado el examen que le toque 
+				header("location: /promoupsa1/vista/Examen1form1.php");
+			}
+			else
+			{
+				header("location: /promoupsa1/vista/index1.php");
+			}
+		}
+	}
+	/*if($tipodeexamen =='b')
 	{
 	  if($fila1[1]!= $a)
 	  {  //sigunifica que no existe el usuario porlo tando crea uno nuevo
 		$Obj->adicionarNombre();
-		header("location: /../promoupsa1/vista/Examen1form1.php");
+		header("location: /promoupsa1/vista/Examen1form1.php");
 	  }
 		else 
 		{
 			if($fila[2]==0 )
 			{	//significa que si existe el usuario pero no ha dado el examen que le toque 
-				header("location: /../promoupsa1/vista/Examen1form1.php");
+				header("location: /promoupsa1/vista/Examen1form1.php");
 			}
 			else
 			{
-				header("location: /../promoupsa1/index1.php");
+				header("location: /promoupsa1/index1.php");
 			}
 		}
-	}*/
+	}
+	if($tipodeexamen =='c')
+	{
+	  if($fila1[1]!= $a)
+	  {  //sigunifica que no existe el usuario porlo tando crea uno nuevo
+		$Obj->adicionarNombre();
+		header("location: /promoupsa1/vista/Examen1form1.php");
+	  }
+		else 
+		{
+			if($fila[2]==0 )
+			{	//significa que si existe el usuario pero no ha dado el examen que le toque 
+				header("location: /promoupsa1/vista/Examen1form1.php");
+			}
+			else
+			{
+				header("location: /promoupsa1/index1.php");
+			}
+		}
+	}
+	if($tipodeexamen =='d')
+	{
+	  if($fila1[1]!= $a)
+	  {  //sigunifica que no existe el usuario porlo tando crea uno nuevo
+		$Obj->adicionarNombre();
+		header("location: /promoupsa1/vista/Examen1form1.php");
+	  }
+		else 
+		{
+			if($fila[2]==0 )
+			{	//significa que si existe el usuario pero no ha dado el examen que le toque 
+				header("location: /promoupsa1/vista/Examen1form1.php");
+			}
+			else
+			{
+				header("location: /promoupsa1/index1.php");
+			}
+		}
+	}
+	
 
-
-
+	*/
 
 
 

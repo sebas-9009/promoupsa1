@@ -1,8 +1,3 @@
-<?php
-	session_start();
-	$examen = "b";
-	$_SESSION['examen'] = $examen;
-?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -33,6 +28,12 @@
   margin: 4px 2px;
   cursor: pointer;
 }
+
+.button1 {border-radius: 2px;}
+.button2 {border-radius: 4px;}
+.button3 {border-radius: 8px;}
+.button4 {border-radius: 40px;}
+.button5 {border-radius: 50%;}
 .padre {
   margin: 1rem;
   padding: 1rem;
@@ -40,12 +41,6 @@
   /* IMPORTANTE */
   text-align: center;
 }
-
-.button1 {border-radius: 2px;}
-.button2 {border-radius: 4px;}
-.button3 {border-radius: 8px;}
-.button4 {border-radius: 40px;}
-.button5 {border-radius: 50%;}
 .p{
 	color:red;
 	font-weight:bold;
@@ -60,24 +55,33 @@
 			<div class="image-holder">
 				<img src="images/logo.png" alt="">
 			</div>
-            <form action="controlador/MainnControlador.php" method="POST">
+            <form action="/../promoupsa1/controlador/MainnControlador2.php" method="POST">
             	<div class="form-header">
             		<a href="#">#Promo UPSA cuestionario online</a>
-            		<h3>Cuestionario de Ingenieria Informatica administrativa y/o de Sistema </h3>
+            		<h3>OPCIONES DEL ADMINISTRADOR</h3>
             	</div>
             	<div id="wizard">
 	                <h4></h4>
 	                <section>
-	                	<h3 align="center">Create un Grupo o si ya tienes uno entra con ese nombre de grupo!!</h3>
-	                	<div class="form-row">
-	                    		<label for="">
-	                    		Nombre del grupo:
-	                    		</label>
-	                    		<div class="form-holder">
-	                    			<input type="text" class="form-control" name="grupo" id ="grupo"><br>
-	                    		</div>
-	                    	</div>                  
-	                    <div class="padre"> <button class="button button4 ">Registrar Grupo</button></div>
+	                	  <div class="form-row">
+	                    	<label for="">
+	                    		¿Qué es lo que quiere hacer?
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		<select name="promo" id="exam" class="form-control">
+	                    			<option value="" selected disabled>Selecione una opción</option>
+									<option value="a" class="option">Sector de Ingenieria Electronica</option>
+									<option value="b" class="option">Sector de Ingenieria Informática y/o de Sistemas</option>
+									<option value="c" class="option">Sector de Ingenieria Civil</option>
+									<option value="d" class="option">Sector de Ingenieria Industrial</option>
+									<option value="e" class="option">Informe de los ganadores</option>
+								</select>
+								<i class="zmdi zmdi-caret-down"></i>
+	                    	</div>
+	                    </div>
+						<div class="padre">
+	                     <button class="button button4 ">Entrar</button>
+						 </div>
 	                </section>
             	</div>
             </form>

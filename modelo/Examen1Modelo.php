@@ -187,6 +187,79 @@ class Examen1Modelo{
         }
 
     }
+
+	public function modificarExamen2($examen2 , $grupo)
+    {
+        $conexion = Conectar::conectarBD();//nos conectamos a la base de datos
+        if($conexion != false)
+        {
+            $sql = "UPDATE examen SET examen2 = $examen2  WHERE grupo= '$grupo';";
+            echo $sql;
+            $stmt=$conexion->prepare($sql);
+            $stmt->bind_param('is',$examen2 ,$grupo);
+            if($stmt->execute())
+            {
+                $conexion->close();
+                return (true);
+
+            }
+            else
+            {
+                $conexion->close();
+                return (false);
+            }
+
+        }
+
+    }
+	public function modificarExamen3($examen3 , $grupo)
+    {
+        $conexion = Conectar::conectarBD();//nos conectamos a la base de datos
+        if($conexion != false)
+        {
+            $sql = "UPDATE examen SET examen3 = $examen3  WHERE grupo= '$grupo';";
+            echo $sql;
+            $stmt=$conexion->prepare($sql);
+            $stmt->bind_param('is',$examen3 ,$grupo);
+            if($stmt->execute())
+            {
+                $conexion->close();
+                return (true);
+
+            }
+            else
+            {
+                $conexion->close();
+                return (false);
+            }
+
+        }
+
+    }
+		public function modificarExamen4($examen4 , $grupo)
+    {
+        $conexion = Conectar::conectarBD();//nos conectamos a la base de datos
+        if($conexion != false)
+        {
+            $sql = "UPDATE examen SET examen4 = $examen4  WHERE grupo= '$grupo';";
+            echo $sql;
+            $stmt=$conexion->prepare($sql);
+            $stmt->bind_param('is',$examen4 ,$grupo);
+            if($stmt->execute())
+            {
+                $conexion->close();
+                return (true);
+
+            }
+            else
+            {
+                $conexion->close();
+                return (false);
+            }
+
+        }
+
+    }
     public function obtenerCliente($id=0)
     {
         $sql = "SELECT * FROM cliente WHERE idCliente=$id;";
