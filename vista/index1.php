@@ -65,6 +65,7 @@
             	<div class="form-header">
             		<a href="#">#Promo UPSA cuestionario online</a>
             		<h3>Cuestionario de Ingenieria Electronica</h3>
+					
             	</div>
             	<div id="wizard">
 	                <h4></h4>
@@ -75,7 +76,7 @@
 	                    		Nombre del grupo:
 	                    		</label>
 	                    		<div class="form-holder">
-	                    			<input type="text" class="form-control" name="grupo" id ="grupo"><br>
+	                    			<input type="text" class="form-control" name="grupo" id ="grupo" required><br>
 	                    		</div>
 	                    	</div>    
 							

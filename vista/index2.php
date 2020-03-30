@@ -74,7 +74,7 @@
 	                    		Nombre del grupo:
 	                    		</label>
 	                    		<div class="form-holder">
-	                    			<input type="text" class="form-control" name="grupo" id ="grupo"><br>
+	                    			<input type="text" class="form-control" name="grupo" id ="grupo"required><br>
 	                    		</div>
 	                    	</div>                  
 	                    <div class="padre"> <button class="button button4 ">Ingresar</button></div>

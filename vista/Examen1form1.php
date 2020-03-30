@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -59,6 +61,7 @@ session_start();
             	<div class="form-header">
             		<a href="#">#Promo UPSA cuestionario online</a>
             		<h3>Carrera de Ingenieria Electronica</h3>
+					<h3>Nombre del Grupo : <?php echo $_SESSION['grupo'];?> </h3>
             	</div>
             	<div id="wizard">
             		<!-- SECTION 1 -->

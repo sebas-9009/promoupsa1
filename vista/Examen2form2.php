@@ -55,10 +55,11 @@ session_start();
 			<div class="image-holder">
 				<img src="images/logo.png" alt="">
 			</div>
-            <form action="../controlador/Examen1Controlador.php" method="POST">
+            <form action="../controlador/Examen2Controlador.php" method="POST">
             	<div class="form-header">
             		<a href="#">#Promo UPSA cuestionario online</a>
             		<h3>Carrera de Ingenieria Informática y/o de Sistemas</h3>
+					<h3>Nombre del Grupo : <?php echo $_SESSION['grupo'];?> </h3>
             	</div>
             	<div id="wizard">
             		<!-- SECTION 1 -->

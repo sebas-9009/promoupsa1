@@ -1,8 +1,3 @@
-<?php
-	session_start();
-	$examen = "d";
-	$_SESSION['examen'] = $examen;
-	?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -60,7 +55,7 @@
 			<div class="image-holder">
 				<img src="images/logo.png" alt="">
 			</div>
-            <form action="" method="POST">
+            <form action="/promoupsa1/controlador/Controladoradmin.php" method="POST">
             	<div class="form-header">
             		<a href="#">#Promo UPSA cuestionario online</a>
             		<h3 align="center">Lista de las Tres mejores notas por Sector</h3>
@@ -69,111 +64,79 @@
 	                <h4></h4>
 	                <section>
 						<h3 align="center">Sector de Ingenieria Electronica</h3>
-	                	<div class="form-row">
-	                    		<label for="">
-	                    		Primera nota del Grupo :
-	                    		</label>
-	                    		<div class="form-holder">
-	                    			100
-	                    		</div>
-	                    	</div>     
-							<div class="form-row">
-	                    		<label for="">
-	                    		Segunda nota del Grupo :
-	                    		</label>
-	                    		<div class="form-holder">
-	                    			100
-	                    		</div>
-	                    	</div> 
-							<div class="form-row">
-	                    		<label for="">
-	                    		Tercera nota del Grupo :
-	                    		</label>
-	                    		<div class="form-holder">
-	                    			100
-	                    		</div>
-	                    	</div> 
+						<?php
+						require_once __DIR__.'/../modelo/Examen1Modelo.php';
+						$Obj = new Examen1Modelo();
+						$rows1 = $Obj->obtenerMejorNota1();
+						while( $fila1 = $rows1->fetch_row()){
+
+echo "								<div class=\"form-row\">\n";
+echo "	                    		<label for=\"\">\n";
+echo "	                    		Primera nota del Grupo : ".$fila1[0];
+echo "	                    		</label>\n";
+echo "	                    		<div class=\"form-holder\">\n";
+echo								$fila1[1];
+echo "	                    		</div>\n";
+echo "	                    	</div>  ";
+							}
+						?>
 					<h3 align="center">Sector de Ingenieria Informatica y/o de sistema</h3>
-	                	<div class="form-row">
-	                    		<label for="">
-	                    		Primera nota del Grupo :
-	                    		</label>
-	                    		<div class="form-holder">
-	                    			100
-	                    		</div>
-	                    	</div>     
-							<div class="form-row">
-	                    		<label for="">
-	                    		Segunda nota del Grupo :
-	                    		</label>
-	                    		<div class="form-holder">
-	                    			100
-	                    		</div>
-	                    	</div> 
-							<div class="form-row">
-	                    		<label for="">
-	                    		Tercera nota del Grupo :
-	                    		</label>
-	                    		<div class="form-holder">
-	                    			100
-	                    		</div>
-	                    	</div> 
+	                	<?php
+						require_once __DIR__.'/../modelo/Examen1Modelo.php';
+						$Obj = new Examen1Modelo();
+						$rows2 = $Obj->obtenerMejorNota2();
+						while( $fila2 = $rows2->fetch_row()){
+
+echo "								<div class=\"form-row\">\n";
+echo "	                    		<label for=\"\">\n";
+echo "	                    		Primera nota del Grupo : ".$fila2[0];
+echo "	                    		</label>\n";
+echo "	                    		<div class=\"form-holder\">\n";
+echo								$fila2[1];
+echo "	                    		</div>\n";
+echo "	                    	</div>  ";
+							}
+						?>
 					</section>
 					<h4></h4>
 	                <section>
 							<h3 align="center">Sector de Ingenieria Civil</h3>
-	                	<div class="form-row">
-	                    		<label for="">
-	                    		Primera nota del Grupo :
-	                    		</label>
-	                    		<div class="form-holder">
-	                    			100
-	                    		</div>
-	                    	</div>     
-							<div class="form-row">
-	                    		<label for="">
-	                    		Segunda nota del Grupo :
-	                    		</label>
-	                    		<div class="form-holder">
-	                    			100
-	                    		</div>
-	                    	</div> 
-							<div class="form-row">
-	                    		<label for="">
-	                    		Tercera nota del Grupo :
-	                    		</label>
-	                    		<div class="form-holder">
-	                    			100
-	                    		</div>
-	                    	</div> 
+	                	<?php
+						require_once __DIR__.'/../modelo/Examen1Modelo.php';
+						$Obj = new Examen1Modelo();
+						$rows3 = $Obj->obtenerMejorNota3();
+						while( $fila3 = $rows3->fetch_row()){
+
+echo "								<div class=\"form-row\">\n";
+echo "	                    		<label for=\"\">\n";
+echo "	                    		Primera nota del Grupo : ".$fila3[0];
+echo "	                    		</label>\n";
+echo "	                    		<div class=\"form-holder\">\n";
+echo								$fila3[1];
+echo "	                    		</div>\n";
+echo "	                    	</div>  ";
+							}
+						?>
 					</section>
 					<h4></h4>
 	                <section>
 							<h3 align="center">Sector de Ingenieria Industrial</h3>
-	                	<div class="form-row">
-	                    		<label for="">
-	                    		Primera nota del Grupo :
-	                    		</label>
-	                    		<div class="form-holder">
-	                    			100
-	                    		</div>
-	                    	</div>     
-							<div class="form-row">
-	                    		<label for="">
-	                    		Segunda nota del Grupo :
-	                    		</label>
-	                    		<div class="form-holder">
-	                    			100
-	                    		</div>
-	                    	</div> 
-							<div class="form-row">
-	                    		<label for="">
-	                    		Tercera nota del Grupo :
-	                    		</label>
-	                    		<div class="form-holder">
-	                    			100
-	                    		</div>
-	                    	</div> 
+	                	<?php
+						require_once __DIR__.'/../modelo/Examen1Modelo.php';
+						$Obj = new Examen1Modelo();
+						$rows4 = $Obj->obtenerMejorNota4();
+						while( $fila4 = $rows4->fetch_row()){
+
+echo "								<div class=\"form-row\">\n";
+echo "	                    		<label for=\"\">\n";
+echo "	                    		Primera nota del Grupo : ".$fila4[0];
+echo "	                    		</label>\n";
+echo "	                    		<div class=\"form-holder\">\n";
+echo								$fila4[1];
+echo "	                    		</div>\n";
+echo "	                    	</div>  ";
+							}
+						?>
 					  <div class="padre"> <button class="button button4 ">Salir de listado</button></div>
 	                </section>
             	</div>

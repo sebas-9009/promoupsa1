@@ -42,7 +42,7 @@ $a = $Obj->getGrupo();
 	  }
 		else 
 		{
-			if($fila1[2]==0 )
+			if($fila1[3]==0 )
 			{	//significa que si existe el usuario pero no ha dado el examen que le toque 
 				header("location: /promoupsa1/vista/Examen2form2.php");
 			}
@@ -61,7 +61,7 @@ $a = $Obj->getGrupo();
 	  }
 		else 
 		{
-			if($fila1[2]==0 )
+			if($fila1[4]==0 )
 			{	//significa que si existe el usuario pero no ha dado el examen que le toque 
 				header("location: /promoupsa1/vista/Examen3form3.php");
 			}
@@ -80,7 +80,7 @@ $a = $Obj->getGrupo();
 	  }
 		else 
 		{
-			if($fila1[2]==0 )
+			if($fila1[5]==0 )
 			{	//significa que si existe el usuario pero no ha dado el examen que le toque 
 				header("location: /promoupsa1/vista/Examen4form4.php");
 			}

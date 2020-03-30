@@ -117,6 +117,38 @@ class Examen1Modelo{
         $conexion->close();
         return($rows);
     }
+	    public function obtenerMejorNota1()
+    {
+        $sql = "SELECT grupo,examen1 FROM examen ORDER BY examen1 DESC LIMIT 3;";
+        $conexion = Conectar::conectarBD();
+        $rows = $conexion->query($sql);
+        $conexion->close();
+        return($rows);
+    }
+	    public function obtenerMejorNota2()
+    {
+        $sql = "SELECT grupo,examen2 FROM examen ORDER BY examen2 DESC LIMIT 3;";
+        $conexion = Conectar::conectarBD();
+        $rows = $conexion->query($sql);
+        $conexion->close();
+        return($rows);
+    }
+	    public function obtenerMejorNota3()
+    {
+        $sql = "SELECT grupo,examen3 FROM examen ORDER BY examen3 DESC LIMIT 3;";
+        $conexion = Conectar::conectarBD();
+        $rows = $conexion->query($sql);
+        $conexion->close();
+        return($rows);
+    }
+	    public function obtenerMejorNota4()
+    {
+        $sql = "SELECT grupo,examen4 FROM examen ORDER BY examen4 DESC LIMIT 3;";
+        $conexion = Conectar::conectarBD();
+        $rows = $conexion->query($sql);
+        $conexion->close();
+        return($rows);
+    }
 
     public function estadistica()
     {
